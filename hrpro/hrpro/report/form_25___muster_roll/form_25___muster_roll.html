@@ -1,0 +1,120 @@
+<h2 class="text-center">{%= __("FORM 25") %}</h2>
+<h2 class="text-center">{%= __("MUSTER ROLL") %}</h2>
+{%
+	var report_columns = report.get_columns_for_print();
+%}
+<style>
+	td {
+		font-size: 11px;
+	}
+
+	th {
+		font-size: 9px;
+	}
+
+	.center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+<meta name="pdfkit-orientation" content="landscape">
+<table border="1" class="center">
+	<tr>
+		<td colspan="10">
+			<center>Rate of Minimum wages and since the date</center>
+		</td>
+		<td colspan="2">Date</td>
+	</tr>
+	<tr>
+		<td colspan="4"></td>
+		<td colspan="2">Highly Skilled</td>
+		<td colspan="2">Skilled</td>
+		<td colspan="2">Semi Skilled</td>
+		<td colspan="2">Unskilled</td>
+	</tr>
+	<tr>
+		<td colspan="4">Minimum Basic</td>
+		<td colspan="2">831.00</td>
+		<td colspan="2">764.00</td>
+		<td colspan="2">695.00</td>
+		<td colspan="2">629.00</td>
+	</tr>
+	<tr>
+		<td colspan="4">DA</td>
+		<td colspan="8">Include in Minimum Basic</td>
+	</tr>
+	<tr>
+		<td colspan="4">Overtime</td>
+		<td colspan="8">Double the rate of wages</td>
+	</tr>
+</table>
+<br>
+<table border="1">
+	<tr>
+		<td colspan="2">Name and Address of Contractor:</td>
+		<td colspan="2">TeamPRO HR & IT SERVICES<br> 1/81, Samayapuram 2nd St, Karambakkam, Samayapuram
+			Nagar, Porur, Chennai, Tamil Nadu 600116 </td>
+		<td colspan="2">Name and Address of Principal employer </td>
+		<td colspan="2">Neyveli Lignite Corporation </td>
+		<td colspan="2">Name of the Owner </td>
+		<td colspan="2"></td>
+	</tr>
+	<tr>
+		<td colspan="2">Wage Period</td>
+		<td colspan="2">Month: {%= filters.month %} <br>Year: {%= filters.year %} </td>
+		<td colspan="2">Work order</td>
+		<td colspan="2">25869172 </td>
+		<td colspan="4"></td>
+
+	</tr>
+
+</table>
+<thead>
+	<tr>
+		<hr>
+		{%
+							var report_columns = report.get_columns_for_print();
+						%}
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Employee ID</th>
+			<th>Name</th>
+				  
+			<th>Summary No of Days</th>
+			<th>Remarks No of Hours</th>
+		    <th>Signature Of Register keeper</th>		
+			</tr>
+		</thead>
+		<tbody>
+		
+    {% for(var j=0, k=data.length; j<k; j++) { %}
+	{% var row = data[j]; %}
+		<tr>
+			<td class="text-left">
+				{% for(var i=1, l=32; i<l; i++) { %}
+				{% var fieldname = report_columns[i].fieldname; %}
+				{% if (fieldname == 'Employee') { %}
+				{%=  row[fieldname] %}
+				{% } %}
+				{% } %}
+				</td>		
+				<td class="text-left">
+						{% for(var i=1, l=32; i<l; i++) { %}
+						{% var fieldname = report_columns[i].fieldname; %}
+						{% if (fieldname == 'Employee Name') { %}
+						{%=  row[fieldname] %}
+						{% } %}
+						{% } %}
+					</td>
+			
+					<td class="text-left">Employee Share PF Welfare
+					</td>
+					<td class="text-left">Employee Share PF Welfare
+					</td>
+					<td class="text-left">Employee Share PF Welfare
+					</td>
+				</tr>
+				{% } %}
+			</tbody>
+		</table>
