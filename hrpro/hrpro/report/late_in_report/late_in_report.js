@@ -37,12 +37,12 @@ frappe.query_reports["Late In Report"] = {
 			"label": __("Employee"),
 			"fieldtype": "Link",
 			"options": "Employee",
-		},
-		{
-			"fieldname":"plant",
-			"label": __("Plamt"),
-			"fieldtype": "Link",
-			"options": "Plant",
 		}
+		// {
+		// 	"fieldname":"plant",
+		// 	"label": __("Plamt"),
+		// 	"fieldtype": "Link",
+		// 	"options": "Plant",
+		// }
 	]
 };

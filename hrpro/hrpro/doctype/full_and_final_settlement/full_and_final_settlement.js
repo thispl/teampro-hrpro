@@ -22,7 +22,7 @@ frappe.ui.form.on('Full and Final Settlement', {
 					}
 				})
 				frappe.call({
-					method: "boss.boss.doctype.full_and_final_settlement.full_and_final_settlement.create_salary_slip",
+					method: "hrpro.hrpro.doctype.full_and_final_settlement.full_and_final_settlement.create_salary_slip",
 					args: {
 						employee: frm.doc.employee,
 						date: frm.doc.posting_date

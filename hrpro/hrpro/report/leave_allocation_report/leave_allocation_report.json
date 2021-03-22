@@ -1,0 +1,30 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-03-19 15:46:56.863730",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[],\"fields\":[[\"name\",\"Leave Allocation\"],[\"docstatus\",\"Leave Allocation\"],[\"employee\",\"Leave Allocation\"],[\"employee_name\",\"Leave Allocation\"],[\"leave_type\",\"Leave Allocation\"],[\"new_leaves_allocated\",\"Leave Allocation\"],[\"total_leaves_allocated\",\"Leave Allocation\"]],\"order_by\":\"`tabLeave Allocation`.`modified` desc\",\"add_totals_row\":0,\"page_length\":20,\"column_widths\":{\"name\":120,\"docstatus\":120,\"employee\":120,\"employee_name\":120,\"leave_type\":120,\"new_leaves_allocated\":120,\"total_leaves_allocated\":120},\"group_by\":null}",
+ "modified": "2021-03-19 18:49:47.406473",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Leave Allocation Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Leave Allocation",
+ "report_name": "Leave Allocation Report",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "HR Manager"
+  }
+ ]
+}

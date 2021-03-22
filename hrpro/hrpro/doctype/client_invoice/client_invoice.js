@@ -25,7 +25,7 @@ frappe.ui.form.on('Client Invoice', {
 	// },
 	start_date: function (frm) {
 		frappe.call({
-			method: 'boss.boss.doctype.client_invoice.client_invoice.get_end_date',
+			method: 'hrpro.hrpro.doctype.client_invoice.client_invoice.get_end_date',
 			args: {
 				frequency: "monthly",
 				start_date: frm.doc.start_date
@@ -39,7 +39,7 @@ frappe.ui.form.on('Client Invoice', {
 	},
 	get_details: function (frm) {
 		frappe.call({
-			method: 'boss.boss.doctype.client_invoice.client_invoice.invoice_item',
+			method: 'hrpro.hrpro.doctype.client_invoice.client_invoice.invoice_item',
 			args: {
 				start_date: frm.doc.start_date,
 				end_date: frm.doc.end_date,

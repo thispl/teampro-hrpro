@@ -7,7 +7,7 @@ frappe.ui.form.on('Statutory Detail', {
 	// },
 	get_details: function (frm) {
 		frappe.call({
-			method: 'boss.boss.doctype.statutory_detail.statutory_detail.statutory_item',
+			method: 'hrpro.hrpro.doctype.statutory_detail.statutory_detail.statutory_item',
 			args: {
 				employee: frm.doc.employee
 			},
@@ -38,7 +38,7 @@ frappe.ui.form.on('Statutory Detail', {
 	},
 	calculate_gratuity: function (frm) {
 		frappe.call({
-			method: 'boss.boss.doctype.statutory_detail.statutory_detail.get_gratuity',
+			method: 'hrpro.hrpro.doctype.statutory_detail.statutory_detail.get_gratuity',
 			args: {
 				employee: frm.doc.employee,
 				age: frm.doc.employment_age,

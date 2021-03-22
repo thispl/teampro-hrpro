@@ -1,0 +1,36 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-03-19 15:45:21.337263",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[],\"fields\":[[\"name\",\"Retention Bonus\"],[\"company\",\"Retention Bonus\"],[\"employee\",\"Retention Bonus\"],[\"employee_name\",\"Retention Bonus\"],[\"department\",\"Retention Bonus\"],[\"bonus_payment_date\",\"Retention Bonus\"],[\"bonus_amount\",\"Retention Bonus\"],[\"salary_component\",\"Retention Bonus\"],[\"currency\",\"Retention Bonus\"]],\"order_by\":\"`tabRetention Bonus`.`modified` desc\",\"add_totals_row\":0,\"page_length\":20,\"column_widths\":{\"name\":120,\"company\":120,\"employee\":120,\"employee_name\":120,\"department\":120,\"bonus_payment_date\":120,\"bonus_amount\":120,\"salary_component\":120,\"currency\":120},\"group_by\":null}",
+ "modified": "2021-03-19 18:49:47.282098",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Retention Bonus Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Retention Bonus",
+ "report_name": "Retention Bonus Report",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "Employee"
+  }
+ ]
+}

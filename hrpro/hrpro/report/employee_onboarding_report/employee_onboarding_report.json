@@ -1,0 +1,27 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-03-19 18:48:26.721664",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[[\"Employee Onboarding\",\"boarding_status\",\"=\",\"Pending\",false]],\"fields\":[[\"name\",\"Employee Onboarding\"],[\"docstatus\",\"Employee Onboarding\"],[\"employee_name\",\"Employee Onboarding\"],[\"date_of_joining\",\"Employee Onboarding\"],[\"department\",\"Employee Onboarding\"],[\"designation\",\"Employee Onboarding\"],[\"boarding_status\",\"Employee Onboarding\"],[\"job_applicant\",\"Employee Onboarding\"],[\"company\",\"Employee Onboarding\"],[\"activity_name\",\"Employee Boarding Activity\"],[\"user\",\"Employee Boarding Activity\"],[\"role\",\"Employee Boarding Activity\"],[\"task_weight\",\"Employee Boarding Activity\"]],\"order_by\":\"`tabEmployee Onboarding`.`modified` desc\",\"add_totals_row\":0,\"page_length\":20,\"column_widths\":{\"name\":120,\"docstatus\":120,\"employee_name\":120,\"date_of_joining\":120,\"department\":120,\"designation\":120,\"boarding_status\":120,\"job_applicant\":120,\"company\":120,\"Employee Boarding Activity:activity_name\":120,\"Employee Boarding Activity:user\":120,\"Employee Boarding Activity:role\":120,\"Employee Boarding Activity:task_weight\":120},\"group_by\":null}",
+ "modified": "2021-03-19 18:51:25.076460",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Employee Onboarding Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Employee Onboarding",
+ "report_name": "Employee Onboarding Report",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

@@ -21,7 +21,7 @@ def execute(filters=None):
     salary_slips = get_salary_slips(conditions, filters)
 
     for ss in salary_slips:
-
+        row = []
         if ss.employee:
             row += [ss.employee]
         else:
@@ -49,18 +49,18 @@ def execute(filters=None):
             row += [""]
 
 
-        if row[4]:
+        if row:
             data.append(row)
 
     return columns, data
 
 def get_columns():
     columns = [
-        _("Employee") + ":Data:50",
-        _("Employee Name") + ":Data:90",
-        _("Payment Days") + ":Int:50",
-        _("Gross Pay") + ":Currency:100",
-        _("TDS") + ":Currency:100"
+        _("Employee") + ":Data:120",
+        _("Employee Name") + ":Data:120",
+        _("Payment Days") + ":Int:120",
+        _("Gross Pay") + ":Currency:120",
+        _("TDS") + ":Currency:120"
 
     ]
     return columns

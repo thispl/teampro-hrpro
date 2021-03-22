@@ -17,7 +17,7 @@ class StatutoryDetail(Document):
 
 @frappe.whitelist()
 def statutory_item(employee):
-	frappe.errprint("hi")
+	# frappe.errprint("hi")
 	ss_dict = {}
 	salary_slip = frappe.get_all('Salary Slip',{'employee':employee},['name','start_date','end_date','total_working_hours','hour_rate'])
 	basic = 0
@@ -39,7 +39,7 @@ def statutory_item(employee):
 				da = sd.amount
 			if sd.salary_component == "Provident Fund":
 				pf = sd.amount
-			if sd.salary_component == "Employees' State Insurance":
+			if sd.salary_component == "Employee State Insurance":
 				esi = sd.amount
 			if sd.salary_component == "Professional Tax":
 				pt = sd.amount

@@ -1,0 +1,36 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2021-03-19 16:00:19.924299",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[],\"fields\":[[\"name\",\"Compensatory Leave Request\"],[\"docstatus\",\"Compensatory Leave Request\"],[\"employee\",\"Compensatory Leave Request\"],[\"employee_name\",\"Compensatory Leave Request\"],[\"department\",\"Compensatory Leave Request\"],[\"leave_type\",\"Compensatory Leave Request\"],[\"work_from_date\",\"Compensatory Leave Request\"],[\"work_end_date\",\"Compensatory Leave Request\"],[\"reason\",\"Compensatory Leave Request\"]],\"order_by\":\"`tabCompensatory Leave Request`.`modified` desc\",\"add_totals_row\":0,\"page_length\":20,\"column_widths\":{\"name\":120,\"docstatus\":120,\"employee\":120,\"employee_name\":120,\"department\":120,\"leave_type\":120,\"work_from_date\":120,\"work_end_date\":120,\"reason\":120},\"group_by\":null}",
+ "modified": "2021-03-19 18:51:08.311126",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Compensatory Leave Request Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Compensatory Leave Request",
+ "report_name": "Compensatory Leave Request Report",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "Employee"
+  }
+ ]
+}

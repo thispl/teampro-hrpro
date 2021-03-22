@@ -35,16 +35,17 @@ def get_columns():
         _("Contractor") + ":Data:120",
         _("Department") + ":Data:200",
         _("Designation") + ":Data:120",
-        _("Biomertic PIN") + ":Data:120"
+        # _("Biomertic PIN") + ":Data:120"
     ]
     return columns
 
 def get_employee_list(conditions,filters):
-    employee = frappe.db.sql("""Select name, employee_name, gender,biometric_pin,date_of_birth,date_of_joining,department,designation,contractor_id
-    From `tabEmployee` Where status = "Active" and %s order by contractor_id"""% conditions, filters, as_dict=1)
+    employee = frappe.db.sql("""Select name, employee_name, gender,date_of_birth,date_of_joining,department,designation,contractor
+    From `tabEmployee` Where status = "Active" and %s order by contractor"""% conditions, filters, as_dict=1)
     row = []
     for emp in employee:
-        row += [(emp.name,emp.employee_name,emp.gender,emp.date_of_joining,emp.contractor_id,emp.department,emp.designation,emp.biometric_pin)]
+        if emp.contractor:
+            row += [(emp.name,emp.employee_name,emp.gender,emp.date_of_joining,emp.contractor,emp.department,emp.designation)]
     return row
 
 def get_conditions(filters):

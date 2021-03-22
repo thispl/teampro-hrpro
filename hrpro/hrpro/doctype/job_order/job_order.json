@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "autoname": "field:name1",
+ "creation": "2020-09-21 16:22:03.333928",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "plant",
+  "subcontractor_id",
+  "column_break_2",
+  "plant_name",
+  "subcontractor_name",
+  "section_break_3",
+  "name1",
+  "number",
+  "place",
+  "date",
+  "column_break_7",
+  "from_date",
+  "to_date",
+  "value",
+  "nature_of_work",
+  "max_no_of_employees_required"
+ ],
+ "fields": [
+  {
+   "fieldname": "plant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Plant",
+   "options": "Plant"
+  },
+  {
+   "fieldname": "subcontractor_id",
+   "fieldtype": "Link",
+   "label": "SubContractor ID",
+   "options": "Contractor"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "plant.customer_code",
+   "fieldname": "plant_name",
+   "fieldtype": "Data",
+   "label": "Plant Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "subcontractor_id.subcontractor_name",
+   "fieldname": "subcontractor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SubContractor Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Job Order Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "label": "Job Order Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "place",
+   "fieldtype": "Data",
+   "label": "Place"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date"
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Data",
+   "label": "Value"
+  },
+  {
+   "fieldname": "nature_of_work",
+   "fieldtype": "Data",
+   "label": "Nature of Work"
+  },
+  {
+   "fieldname": "max_no_of_employees_required",
+   "fieldtype": "Data",
+   "label": "Max No of Employees Required"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-01-06 18:19:41.785834",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Job Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "number",
+ "track_changes": 1
+}

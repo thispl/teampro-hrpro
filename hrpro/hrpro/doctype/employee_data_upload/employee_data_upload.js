@@ -7,7 +7,7 @@ frappe.ui.form.on('Employee Data Upload', {
 	// }
 	after_save: function (frm) {
 		frappe.call({
-			method: 'boss.boss.doctype.employee_data_upload.employee_data_upload.mail_alert',
+			method: 'hrpro.hrpro.doctype.employee_data_upload.employee_data_upload.mail_alert',
 			args: {
 				number_of_employee: frm.doc.number_of_employee,
 				site: frm.doc.site

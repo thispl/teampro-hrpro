@@ -26,12 +26,12 @@ frappe.query_reports["Early Out Report"] = {
 			"reqd": 1,
 			"default": frappe.defaults.get_user_default("Company")
 		},
-		{
-			"fieldname":"plant",
-			"label": __("Plant"),
-			"fieldtype": "Link",
-			"options": "Plant",
-		},
+		// {
+		// 	"fieldname":"plant",
+		// 	"label": __("Plant"),
+		// 	"fieldtype": "Link",
+		// 	"options": "Plant",
+		// },
 		{
 			"fieldname":"employee",
 			"label": __("Employee"),

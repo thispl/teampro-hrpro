@@ -21,8 +21,8 @@ def execute(filters=None):
     salary_slips = get_salary_slips(conditions, filters)
 
     for ss in salary_slips:
-        esino = frappe.db.get_value(
-            "Employee", {'employee': ss.employee}, ['esi_ip_no'])
+        row = []
+        esino = frappe.db.get_value("Employee", {'employee': ss.employee}, ['esi_number'])
         if esino:
             row = [esino]
         else:
@@ -48,19 +48,19 @@ def execute(filters=None):
         else:
             row += [0]
         esic = frappe.db.get_value(
-            "Salary Detail", {'abbr': 'ESIC', 'parent': ss.name}, ['amount'])
+            "Salary Detail", {'abbr': 'ESI', 'parent': ss.name}, ['amount'])
         if esic:
-            row += [esic]
+            row += [esic,"",""]
         else:
-            row += [""]
+            row += ["","",""]
 
         # eesi = round(ss.gp * 0.0325)
         # if eesi:
         #     row += [eesi]
         # else:
         #     row += [""]
-
-        if row[5]:
+        # frappe.errprint(row)
+        if row:
             data.append(row)
 
     return columns, data
@@ -69,7 +69,7 @@ def execute(filters=None):
 def get_columns():
     columns = [
         _("ESI Number") + ":Data:120",
-        _("Employee") + ":Data:50",
+        _("Employee") + ":Data:120",
         _("Employee Name") + ":Data:90",
         _("Payment Days") + ":Int:50",
         _("Gross Pay") + ":Currency:100",

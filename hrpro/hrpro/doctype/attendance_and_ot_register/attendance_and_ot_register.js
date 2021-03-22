@@ -7,7 +7,7 @@ frappe.ui.form.on('Attendance and OT Register', {
 	// }
 	start_date: function (frm) {
 		frappe.call({
-			method: 'boss.boss.doctype.attendance_and_ot_register.attendance_and_ot_register.get_end_date',
+			method: 'hrpro.hrpro.doctype.attendance_and_ot_register.attendance_and_ot_register.get_end_date',
 			args: {
 				frequency: "monthly",
 				start_date: frm.doc.start_date
@@ -22,7 +22,7 @@ frappe.ui.form.on('Attendance and OT Register', {
 	before_save: function (frm) {
 		if (frm.doc.employee == null && frm.doc.client_employee_no) {
 			frappe.call({
-				method: 'boss.boss.doctype.attendance_and_ot_register.attendance_and_ot_register.get_employee',
+				method: 'hrpro.hrpro.doctype.attendance_and_ot_register.attendance_and_ot_register.get_employee',
 				args: {
 					client_id: frm.doc.client_employee_no
 				},
@@ -37,7 +37,7 @@ frappe.ui.form.on('Attendance and OT Register', {
 	client_employee_no: function (frm) {
 		if (frm.doc.employee == null) {
 			frappe.call({
-				method: 'boss.boss.doctype.attendance_and_ot_register.attendance_and_ot_register.get_employee',
+				method: 'hrpro.hrpro.doctype.attendance_and_ot_register.attendance_and_ot_register.get_employee',
 				args: {
 					client_id: frm.doc.client_employee_no
 				},
@@ -52,7 +52,7 @@ frappe.ui.form.on('Attendance and OT Register', {
 	after_save: function (frm) {
 		if(frm.doc.canteen_charges > 0) {
 			frappe.call({
-				method: 'boss.boss.doctype.attendance_and_ot_register.attendance_and_ot_register.create_canteen_salary',
+				method: 'hrpro.hrpro.doctype.attendance_and_ot_register.attendance_and_ot_register.create_canteen_salary',
 				args: {
 					canteen: frm.doc.canteen_charges,
 					payroll_date: frm.doc.start_date,
@@ -66,7 +66,7 @@ frappe.ui.form.on('Attendance and OT Register', {
 		}
 		if(frm.doc.transport_charges > 0) {
 			frappe.call({
-				method: 'boss.boss.doctype.attendance_and_ot_register.attendance_and_ot_register.create_transport_salary',
+				method: 'hrpro.hrpro.doctype.attendance_and_ot_register.attendance_and_ot_register.create_transport_salary',
 				args: {
 					transport: frm.doc.transport_charges,
 					payroll_date: frm.doc.start_date,

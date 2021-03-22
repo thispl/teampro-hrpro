@@ -22,6 +22,7 @@ def execute(filters=None):
     edlic = 0
     salary_slips = get_salary_slips(conditions, filters)
     for ss in salary_slips:
+        row = []
         pfno = frappe.db.get_value(
             "Employee", {'employee': ss.employee}, ['pf_number'])
         if pfno:
@@ -77,10 +78,10 @@ def execute(filters=None):
             row += [0]
 
         if ss.lop:
-            row += [ss.lop]
+            row += [ss.lop,0]
         else:
-            row += [0]
-        if row[9]:
+            row += [0,0]
+        if row:
             data.append(row)
     return columns, data
 

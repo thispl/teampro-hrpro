@@ -1,24 +1,459 @@
 {
  "actions": [],
- "autoname": "field:contractor_name",
- "creation": "2021-03-17 19:08:09.731529",
+ "allow_rename": 1,
+ "autoname": "field:subcontractor_id",
+ "creation": "2020-09-21 10:33:55.832030",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "contractor_name"
+  "subcontractor_id",
+  "short_code",
+  "column_break_2",
+  "job_order",
+  "registered_contractor_details_section",
+  "rc_child",
+  "section_break_2",
+  "subcontractor_name",
+  "subcontractor_type",
+  "column_break_10",
+  "nature_of_work",
+  "supervisor_name",
+  "supervisor_contact",
+  "particulars_of_the_contractor_section",
+  "first_name",
+  "middle_name",
+  "last_name",
+  "dob",
+  "fathers_name",
+  "mothers_name",
+  "nationality",
+  "column_break_8",
+  "contact_no",
+  "aadhar_number",
+  "landline_no",
+  "mail_id",
+  "gst_no",
+  "address",
+  "flat_number",
+  "block_number",
+  "flat_name",
+  "door_number",
+  "street",
+  "column_break_13",
+  "area",
+  "citytown",
+  "state",
+  "postal_code",
+  "annexures_section",
+  "wc_insurance_section",
+  "wc_child",
+  "group_personal_accident_insurance_section",
+  "group_insurance",
+  "indemnity_details_section",
+  "indemnity_declaration",
+  "company_registration_details_section",
+  "company_registration_no",
+  "column_break_45",
+  "company_registration_document",
+  "epf_registration_details_section",
+  "epf_registration_no",
+  "column_break_49",
+  "epf_registration_document",
+  "esi_registration_details_section",
+  "esi_registration_no",
+  "column_break_51",
+  "esi_registration_document",
+  "trade_license_details_section",
+  "trade_license_no",
+  "column_break_59",
+  "trade_license_document",
+  "gst_details_section",
+  "gst_registration_no",
+  "column_break_65",
+  "gst_registration_document",
+  "tin__tan__pan_details_section",
+  "tin_registration_no",
+  "column_break_69",
+  "tin_registration_document",
+  "proprietor_details_section",
+  "proprietor_registration_no",
+  "column_break_73",
+  "proprietor_registration_document"
  ],
  "fields": [
   {
-   "fieldname": "contractor_name",
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_order",
+   "fieldtype": "Link",
+   "label": "Job Order",
+   "options": "Job Order"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Particular Of the Contract Work"
+  },
+  {
+   "fieldname": "subcontractor_name",
    "fieldtype": "Data",
-   "label": "Contractor Name",
+   "in_list_view": 1,
+   "label": "Name of the contractor 's establishment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "subcontractor_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contractor",
+   "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "landline_no",
+   "fieldtype": "Data",
+   "label": "Landline No"
+  },
+  {
+   "fieldname": "mail_id",
+   "fieldtype": "Data",
+   "label": "Mail ID",
+   "options": "Email"
+  },
+  {
+   "fieldname": "gst_no",
+   "fieldtype": "Data",
+   "label": "GST No",
+   "length": 15
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "citytown",
+   "fieldtype": "Data",
+   "label": "Village / Town / City"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "subcontractor_type",
+   "fieldtype": "Data",
+   "label": "Type of Contractor's Establishment"
+  },
+  {
+   "fieldname": "nature_of_work",
+   "fieldtype": "Data",
+   "label": "Nature of Work in which Contractor labour is to be Employed"
+  },
+  {
+   "fieldname": "particulars_of_the_contractor_section",
+   "fieldtype": "Section Break",
+   "label": "Particulars of the Proprietor"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name / Main Calling Name"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name / Surname"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "fathers_name",
+   "fieldtype": "Data",
+   "label": "Father's Name"
+  },
+  {
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "label": "Mother's Name"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "aadhar_number",
+   "fieldtype": "Data",
+   "label": "Aadhar (UID) Number"
+  },
+  {
+   "fieldname": "flat_number",
+   "fieldtype": "Data",
+   "label": "Flat Number"
+  },
+  {
+   "fieldname": "block_number",
+   "fieldtype": "Data",
+   "label": "Block Number"
+  },
+  {
+   "fieldname": "flat_name",
+   "fieldtype": "Data",
+   "label": "Flat Name"
+  },
+  {
+   "fieldname": "door_number",
+   "fieldtype": "Data",
+   "label": "Door Number / Plot Number"
+  },
+  {
+   "fieldname": "street",
+   "fieldtype": "Data",
+   "label": "Street /Road"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Data",
+   "label": "Area/Locality"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "annexures_section",
+   "fieldtype": "Section Break",
+   "label": "Annexures"
+  },
+  {
+   "fieldname": "indemnity_details_section",
+   "fieldtype": "Section Break",
+   "label": "Indemnity Details"
+  },
+  {
+   "fieldname": "indemnity_declaration",
+   "fieldtype": "Attach",
+   "label": "Indemnity / Declaration Letter"
+  },
+  {
+   "fieldname": "company_registration_details_section",
+   "fieldtype": "Section Break",
+   "label": "Company Registration Details"
+  },
+  {
+   "fieldname": "company_registration_no",
+   "fieldtype": "Data",
+   "label": "Company Registration No"
+  },
+  {
+   "fieldname": "company_registration_document",
+   "fieldtype": "Attach",
+   "label": "Company Registration Document"
+  },
+  {
+   "fieldname": "epf_registration_details_section",
+   "fieldtype": "Section Break",
+   "label": "EPF Registration Details"
+  },
+  {
+   "fieldname": "epf_registration_no",
+   "fieldtype": "Data",
+   "label": "EPF Registration No"
+  },
+  {
+   "fieldname": "epf_registration_document",
+   "fieldtype": "Attach",
+   "label": " EPF Registration Document"
+  },
+  {
+   "fieldname": "esi_registration_details_section",
+   "fieldtype": "Section Break",
+   "label": "ESI Registration Details"
+  },
+  {
+   "fieldname": "esi_registration_no",
+   "fieldtype": "Data",
+   "label": "ESI Registration No"
+  },
+  {
+   "fieldname": "esi_registration_document",
+   "fieldtype": "Attach",
+   "label": "ESI Registration Document"
+  },
+  {
+   "fieldname": "trade_license_details_section",
+   "fieldtype": "Section Break",
+   "label": "Trade License Details"
+  },
+  {
+   "fieldname": "trade_license_no",
+   "fieldtype": "Data",
+   "label": "Trade License No"
+  },
+  {
+   "fieldname": "trade_license_document",
+   "fieldtype": "Attach",
+   "label": "Trade License Document"
+  },
+  {
+   "fieldname": "gst_details_section",
+   "fieldtype": "Section Break",
+   "label": "GST Details"
+  },
+  {
+   "fieldname": "gst_registration_no",
+   "fieldtype": "Data",
+   "label": "GST Registration No"
+  },
+  {
+   "fieldname": "gst_registration_document",
+   "fieldtype": "Attach",
+   "label": "GST Registration Document"
+  },
+  {
+   "fieldname": "tin__tan__pan_details_section",
+   "fieldtype": "Section Break",
+   "label": "TIN / TAN / PAN Details"
+  },
+  {
+   "fieldname": "tin_registration_no",
+   "fieldtype": "Data",
+   "label": "TIN Registration No"
+  },
+  {
+   "fieldname": "tin_registration_document",
+   "fieldtype": "Attach",
+   "label": "TIN Registration Document"
+  },
+  {
+   "fieldname": "proprietor_details_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Proprietor Details"
+  },
+  {
+   "fieldname": "proprietor_registration_no",
+   "fieldtype": "Data",
+   "label": "Proprietor Registration No"
+  },
+  {
+   "fieldname": "proprietor_registration_document",
+   "fieldtype": "Attach",
+   "label": "Proprietor Registration Document"
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Data",
+   "label": "Supervisor Name"
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_59",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_49",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_69",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_73",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Capital Letter without Space",
+   "fieldname": "short_code",
+   "fieldtype": "Data",
+   "label": "Contractor Short Code",
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "registered_contractor_details_section",
+   "fieldtype": "Section Break",
+   "label": "Registered Contractor Details"
+  },
+  {
+   "fieldname": "rc_child",
+   "fieldtype": "Table",
+   "options": "RC Child"
+  },
+  {
+   "fieldname": "supervisor_contact",
+   "fieldtype": "Data",
+   "label": "Supervisor Contact"
+  },
+  {
+   "fieldname": "wc_insurance_section",
+   "fieldtype": "Section Break",
+   "label": "WC Insurance"
+  },
+  {
+   "fieldname": "wc_child",
+   "fieldtype": "Table",
+   "options": "WC Insurance"
+  },
+  {
+   "fieldname": "group_personal_accident_insurance_section",
+   "fieldtype": "Section Break",
+   "label": "Group Personal Accident Insurance"
+  },
+  {
+   "fieldname": "group_insurance",
+   "fieldtype": "Table",
+   "options": "Group Personal Accident Insurance"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-17 19:08:09.731529",
+ "modified": "2021-02-26 14:27:28.387029",
  "modified_by": "Administrator",
  "module": "Hrpro",
  "name": "Contractor",
