@@ -32,25 +32,25 @@ def get_columns():
         _("Attendance Date") + ":Data:200",
         _("Employee") + ":Data:120",
         _("Employee Name") + ":Data:120",
-        _("Plant") + ":Data:120",
+        # _("Plant") + ":Data:120",
         _("Shift") + ":Data:120",
-        _("In Time") + ":Data:120"
+        _("In Time") + ":Datetime:120"
     ]
     return columns
 
 def get_attendance(conditions,filters):
-    attendance = frappe.db.sql("""Select name,employee, employee_name, department, plant, attendance_date, shift,status, tabAttendance.in as in_time,tabAttendance.out as out_time
+    attendance = frappe.db.sql("""Select name,employee, employee_name, department, attendance_date, shift,status, in_time,out_time
      From `tabAttendance` Where status = "Present" and %s group by employee,attendance_date"""% conditions,filters, as_dict=1)
     row = []
+    frappe.errprint(attendance)
     for att in attendance:
         if not att.out_time:
-            row += [(att.name,att.attendance_date,att.employee,att.employee_name,att.plant,att.shift,att.in_time)]
+            row += [(att.name,att.attendance_date,att.employee,att.employee_name,att.shift,att.in_time)]
     return row
 
 def get_conditions(filters):
     conditions = ""
-    if filters.get("from_date"): conditions += " attendance_date >= %(from_date)s"
-    if filters.get("to_date"): conditions += " and attendance_date <= %(to_date)s"
+    if filters.get("from_date"): conditions += " attendance_date between %(from_date)s and %(to_date)s"
     if filters.get("company"): conditions += " and company = %(company)s"
     if filters.get("employee"): conditions += " and employee = %(employee)s"
     # if filters.get("plant"): conditions += " and plant = %(plant)s"

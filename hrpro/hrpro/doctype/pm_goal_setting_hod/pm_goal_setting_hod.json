@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "creation": "2019-03-14 11:43:19.344337",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "goal_setting_for_current_year",
+  "performance_measure",
+  "weightage_w_100",
+  "weightage",
+  "self_rating",
+  "manager",
+  "hod",
+  "reviewer"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "goal_setting_for_current_year",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "KPI"
+  },
+  {
+   "columns": 2,
+   "fieldname": "performance_measure",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Performance Measure"
+  },
+  {
+   "columns": 1,
+   "fieldname": "weightage_w_100",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "TimeLine "
+  },
+  {
+   "columns": 1,
+   "fieldname": "weightage",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Weightage(W)"
+  },
+  {
+   "columns": 1,
+   "fieldname": "self_rating",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Self Rating ",
+   "options": "\n1\n2\n3\n4",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "manager",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Manager",
+   "options": "\n1\n2\n3\n4\n-",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "hod",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "HOD",
+   "options": "\n1\n2\n3\n4"
+  },
+  {
+   "fieldname": "reviewer",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reviewer"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-03-12 11:08:08.446227",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "PM Goal Setting HOD",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

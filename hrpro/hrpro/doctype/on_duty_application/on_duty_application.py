@@ -24,7 +24,7 @@ class OnDutyApplication(Document):
         #     update_attendance_by_app(self.employee,self.from_date,self.to_date,self.from_date_session,self.to_date_session,"OD")
 
     def validate(self):
-        self.validate_approver()
+        # self.validate_approver()
         self.validate_od_overlap()	
 
     def validate_approver(self):

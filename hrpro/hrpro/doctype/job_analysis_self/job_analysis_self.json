@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "creation": "2021-03-23 13:56:19.411875",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "appraisee_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "appraisee_remarks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Appraisee (complete before the interview) ",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-03-23 14:01:04.865018",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Job Analysis Self",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

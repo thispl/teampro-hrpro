@@ -7,9 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "employee",
-  "client_employee_no",
   "employee_name",
-  "client",
   "site",
   "column_break_5",
   "posting_date",
@@ -34,17 +32,6 @@
    "options": "Employee"
   },
   {
-   "fetch_from": "employee.client",
-   "fieldname": "client",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Client",
-   "options": "Client",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "employee.site",
    "fieldname": "site",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -115,13 +102,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "employee.client_employee_no",
-   "fieldname": "client_employee_no",
-   "fieldtype": "Data",
-   "in_standard_filter": 1,
-   "label": "Client Employee No"
-  },
-  {
    "fetch_from": "employee.employee_name",
    "fieldname": "employee_name",
    "fieldtype": "Data",
@@ -144,7 +124,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-02-23 16:53:37.699760",
+ "modified": "2021-03-23 12:37:23.666869",
  "modified_by": "Administrator",
  "module": "Hrpro",
  "name": "Attendance and OT Register",
