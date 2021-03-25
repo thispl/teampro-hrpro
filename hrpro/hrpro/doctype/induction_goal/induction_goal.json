@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "autoname": "IG.####",
+ "creation": "2020-12-09 15:07:09.265158",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_id",
+  "employee_name",
+  "column_break_3",
+  "designation",
+  "email",
+  "section_break_6",
+  "goal",
+  "section_break_8",
+  "self_rating",
+  "column_break_9",
+  "manager_rating",
+  "column_break_11",
+  "hod_rating",
+  "column_break_13",
+  "reviewer_rating",
+  "reviewer",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Link",
+   "label": "Employee ID",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee_id.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee_id.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fetch_from": "employee_id.prefered_email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "goal",
+   "fieldtype": "Table",
+   "label": "Goal",
+   "options": "Goal Induction"
+  },
+  {
+   "fieldname": "reviewer",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Reviewer",
+   "options": "\nConfirmed\nNot Confirmed"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Induction Goal",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "self_rating",
+   "fieldtype": "Data",
+   "label": "Self Rating"
+  },
+  {
+   "fieldname": "manager_rating",
+   "fieldtype": "Data",
+   "label": "Manager Rating"
+  },
+  {
+   "fieldname": "hod_rating",
+   "fieldtype": "Data",
+   "label": "HOD Rating"
+  },
+  {
+   "fieldname": "reviewer_rating",
+   "fieldtype": "Data",
+   "label": "Reviewer Rating"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-03-20 16:23:11.945242",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Induction Goal",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

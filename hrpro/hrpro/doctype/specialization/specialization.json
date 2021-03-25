@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "autoname": "field:specialization",
+ "creation": "2020-08-06 12:12:34.592964",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "specialization",
+  "category"
+ ],
+ "fields": [
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Data",
+   "label": "Specialization",
+   "unique": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Qualification Category"
+  }
+ ],
+ "links": [],
+ "modified": "2020-09-10 12:02:15.629096",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Specialization",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

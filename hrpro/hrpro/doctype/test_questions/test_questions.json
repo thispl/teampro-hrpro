@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "creation": "2020-12-04 12:07:52.874049",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "question",
+  "answers",
+  "score"
+ ],
+ "fields": [
+  {
+   "fieldname": "question",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Question"
+  },
+  {
+   "fieldname": "answers",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Answers"
+  },
+  {
+   "columns": 1,
+   "fieldname": "score",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Score(1-10)",
+   "mandatory_depends_on": "eval:frm.doc.__islocal"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2021-02-16 12:53:20.567821",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Test Questions",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

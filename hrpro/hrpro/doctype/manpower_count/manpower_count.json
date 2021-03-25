@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "creation": "2021-02-03 13:50:12.241416",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "shift_type",
+  "contract_type",
+  "manpower_count",
+  "column_break_5",
+  "hod",
+  "plant_head",
+  "gm",
+  "vp",
+  "wtd"
+ ],
+ "fields": [
+  {
+   "fieldname": "shift_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shift Type",
+   "options": "Shift Type"
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Contract Type",
+   "options": "\nJob Contract\nManpower Contract"
+  },
+  {
+   "fieldname": "manpower_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Manpower Count"
+  },
+  {
+   "fieldname": "hod",
+   "fieldtype": "Int",
+   "label": "HOD"
+  },
+  {
+   "fieldname": "plant_head",
+   "fieldtype": "Int",
+   "label": "Plant Head"
+  },
+  {
+   "fieldname": "gm",
+   "fieldtype": "Int",
+   "label": "GM"
+  },
+  {
+   "fieldname": "vp",
+   "fieldtype": "Int",
+   "label": "VP"
+  },
+  {
+   "fieldname": "wtd",
+   "fieldtype": "Int",
+   "label": "WTD"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "\nFinance - TPL\nAccounts - TPL\nAdministration - TPL\nHuman Resources - TPL\nTREASURY & INCOME TAX - TPL\nCPP - TPL\nO&M - TPL\nPIF - TPL\nCivil - TPL\nSales - TPL\nHealth - TPL\nSAFETY - TPL\nSTORES - TPL\nPROJECTS - TPL\nSECURITY - TPL\nLogistics - TPL\nElectrical - TPL\nMANAGEMENT - TPL\nMECHANICAL - TPL\nPRODUCTION - TPL\nEnvironment - TPL\nProcurement - TPL\nSECRETARIAL - TPL\nDistribution - TPL\nInstrumentation - TPL\nQUALITY ASSURANCE - TPL\nTechnical Services - TPL\nINFORMATION TECHNOLOGY - TPL\nRESEARCH & DEVELOPMENT - TPL"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-03-04 12:16:27.092463",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Manpower Count",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

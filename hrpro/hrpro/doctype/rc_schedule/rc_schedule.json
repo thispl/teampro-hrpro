@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "creation": "2021-03-01 16:08:42.365164",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "shift_type",
+  "contract_type",
+  "manpower_count",
+  "id"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shift_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shift Type",
+   "options": "Shift Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Contract Type",
+   "options": "\nJob Contract\nManpower Contract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manpower_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Manpower Count"
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "id"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-03-05 16:14:36.128910",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "RC Schedule",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

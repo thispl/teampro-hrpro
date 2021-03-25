@@ -1,0 +1,166 @@
+{
+ "actions": [],
+ "autoname": "MR-.####",
+ "creation": "2021-01-19 21:24:46.695146",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department",
+  "contractor",
+  "plant",
+  "column_break_4",
+  "unregistered",
+  "requested_by",
+  "start_date",
+  "end_date",
+  "job_description",
+  "section_break_16",
+  "registered",
+  "available",
+  "column_break_13",
+  "wc_registered_count",
+  "wc_available_count",
+  "shift_wise_count_section",
+  "manpower_count",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "contractor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contractor",
+   "options": "Contractor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Link",
+   "label": "Plant",
+   "options": "Plant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Month Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Month End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "job_description",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Job Description"
+  },
+  {
+   "fieldname": "shift_wise_count_section",
+   "fieldtype": "Section Break",
+   "label": "Shift Wise Count"
+  },
+  {
+   "fieldname": "manpower_count",
+   "fieldtype": "Table",
+   "options": "Manpower Count"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Contractor Schedule Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "registered",
+   "fieldtype": "Int",
+   "label": "RC Registered Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "available",
+   "fieldtype": "Int",
+   "label": "RC Available Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wc_registered_count",
+   "fieldtype": "Int",
+   "label": "WC Registered Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "wc_available_count",
+   "fieldtype": "Int",
+   "label": "WC Available Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break",
+   "label": "Availability Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "unregistered",
+   "fieldtype": "Check",
+   "label": "Unregistered"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-03-08 20:46:35.673927",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Contractor Schedule Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

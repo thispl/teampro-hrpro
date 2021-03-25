@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "autoname": "field:college_name",
+ "creation": "2021-02-25 15:44:39.312495",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "college_name",
+  "category",
+  "type",
+  "university_board",
+  "location",
+  "column_break_6",
+  "land_line",
+  "website",
+  "common_mail_id",
+  "yoe",
+  "section_break_11",
+  "contact_table",
+  "section_break_13",
+  "course_table",
+  "section_break_15",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "college_name",
+   "fieldtype": "Data",
+   "label": "College Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nPrivate\nGovernment\nUniversity\nDeemed University"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nEngineering\nArts & Science\nPolytechnic\nITI\nVocational Institutes\nSkill Center\nSchool\nPharma\nMedical\nManagement"
+  },
+  {
+   "fieldname": "university_board",
+   "fieldtype": "Data",
+   "label": "University / Board"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "land_line",
+   "fieldtype": "Data",
+   "label": "Land Line"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "common_mail_id",
+   "fieldtype": "Data",
+   "label": "Common Mail ID"
+  },
+  {
+   "fieldname": "yoe",
+   "fieldtype": "Data",
+   "label": "YOE"
+  },
+  {
+   "fieldname": "contact_table",
+   "fieldtype": "Table",
+   "label": "Contact Table",
+   "options": "Recruitment Contact"
+  },
+  {
+   "fieldname": "course_table",
+   "fieldtype": "Table",
+   "label": "Course Table",
+   "options": "Recruitment Course"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-03-03 16:37:42.721409",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Institutes",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
