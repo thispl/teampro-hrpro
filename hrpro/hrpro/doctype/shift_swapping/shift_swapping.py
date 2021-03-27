@@ -11,5 +11,5 @@ class ShiftSwapping(Document):
 
 @frappe.whitelist()
 def allocated_shift(employee,shift_date):
-	shift = frappe.get_value("Shift Assignment",{"employee":employee},["shift_type"])
+	shift = frappe.db.sql("""select shift_type,start_date,end_date from `tabShift Assignment` where employee = '%s' and '%s' between start_date and end_date"""%(employee, shift_date),as_dict = 1)
 	return shift

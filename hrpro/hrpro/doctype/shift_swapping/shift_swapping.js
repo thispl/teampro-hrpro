@@ -14,7 +14,8 @@ frappe.ui.form.on('Shift Swapping', {
 			},
 			callback: function (r) {
 				if (r.message) {
-					frm.set_value('shift_type', r.message);
+					console.log(r.message[0])
+					frm.set_value('shift_type', r.message[0].shift_type);
 				}
 			}
 		});
