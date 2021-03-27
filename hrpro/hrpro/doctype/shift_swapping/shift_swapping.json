@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "SS-.YY.-.MM.-.#####",
  "creation": "2021-03-26 16:01:26.569416",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -9,8 +10,10 @@
   "employee_name",
   "department",
   "designation",
+  "status",
   "column_break_5",
   "posting_date",
+  "company",
   "shift_date",
   "shift_type",
   "swap_to",
@@ -105,12 +108,24 @@
    "fieldtype": "Table",
    "label": "Shift Detail",
    "options": "Shift Swap Detail"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nApproved\nRejected"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-03-26 16:20:35.295243",
+ "modified": "2021-03-27 20:18:40.059480",
  "modified_by": "Administrator",
  "module": "Hrpro",
  "name": "Shift Swapping",

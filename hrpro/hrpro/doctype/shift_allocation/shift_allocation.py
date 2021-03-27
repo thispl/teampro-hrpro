@@ -7,6 +7,8 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import formatdate, getdate
+from datetime import datetime
+import pandas as pd
 
 class OverlapError(frappe.ValidationError): pass
 
@@ -17,27 +19,27 @@ class ShiftAllocation(Document):
 		self.validate_approver()
 		self.validate_default_shift()
 
-	def on_save(self):
+	def on_submit(self):
 		if self.status not in ["Approved", "Rejected"]:
 			frappe.throw(_("Only Shift Allocation with status 'Approved' and 'Rejected' can be submitted"))
 		if self.status == "Approved":
-			date_range = range(self.from_date,self.to_date)
-			frappe.errprint(date_range)
-			assignment_doc = frappe.new_doc("Shift Assignment")
-			assignment_doc.company = self.company
-			assignment_doc.shift_type = self.shift_type
-			assignment_doc.employee = self.employee
-			assignment_doc.start_date = self.from_date
-			if self.to_date:
-				assignment_doc.end_date = self.to_date
-			assignment_doc.shift_request = self.name
-			# assignment_doc.insert()
-			# assignment_doc.submit()
-
-			frappe.msgprint(_("Shift Assignment: {0} created for Employee: {1}").format(frappe.bold(assignment_doc.name), frappe.bold(self.employee)))
+			datelist = pd.date_range(self.from_date, self.to_date).tolist()
+			for date in datelist:
+				frappe.errprint(date.date())
+				assignment_doc = frappe.new_doc("Shift Assignment")
+				assignment_doc.company = self.company
+				assignment_doc.shift_type = self.shift_type
+				assignment_doc.employee = self.employee
+				assignment_doc.start_date = date.date()
+				if self.to_date:
+					assignment_doc.end_date = date.date()
+				assignment_doc.shift_allocation = self.name
+				assignment_doc.insert()
+				assignment_doc.submit()
+				frappe.msgprint(_("Shift Assignment: {0} created for Employee: {1}").format(frappe.bold(assignment_doc.name), frappe.bold(self.employee)))
 
 	def on_cancel(self):
-		shift_assignment_list = frappe.get_list("Shift Assignment", {'employee': self.employee, 'shift_request': self.name})
+		shift_assignment_list = frappe.get_list("Shift Assignment", {'employee': self.employee, 'shift_allocation': self.name})
 		if shift_assignment_list:
 			for shift in shift_assignment_list:
 				shift_assignment_doc = frappe.get_doc("Shift Assignment", shift['name'])

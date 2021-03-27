@@ -6,45 +6,55 @@ frappe.ui.form.on('Shift Swapping', {
 
 	// }
 	shift_date:function(frm){
-		frappe.call({
-			method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.allocated_shift',
-			args: {
-				employee: frm.doc.employee,
-				shift_date: frm.doc.shift_date
-			},
-			callback: function (r) {
-				if (r.message) {
-					console.log(r.message[0])
-					frm.set_value('shift_type', r.message[0].shift_type);
+		if(frm.doc.shift_date){
+			frappe.call({
+				method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.allocated_shift',
+				args: {
+					employee: frm.doc.employee,
+					shift_date: frm.doc.shift_date
+				},
+				callback: function (r) {
+					if (r.message) {
+						frm.set_value('shift_type', r.message[0].shift_type);
+					}
 				}
-			}
-		});
+			});
+		}
 	},
 	swap_to:function(frm){
-		// frappe.call({
-		// 	method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.shift_details',
-		// 	args: {
-		// 		employee: frm.doc.employee,
-		// 		shift_date: frm.doc.shift_date,
-		// 		swap_to: frm.doc.swap_to
-		// 	},
-		// 	callback: function (r) {
-		// 		if (r.message) {
-					// $.each(r.message, function(i, d) {
-					// 	frm.add_child('item', {
-					// 		salary_slip: d.salary_slip,
-					// 		month: d.month,
-					// 		year:d.year,
-					// 		basic_and_da:d.basic + d.da,
-					// 		pf: d.pf,
-					// 		esi: d.esi,
-					// 		pt: d.pt,
-					// 		bonus: d.bonus
-					// 	});
-					// 	frm.refresh_field('item');
-					// })
-		// 		}
-		// 	}
-		// });
+		if (frm.doc.swap_to){
+			frappe.call({
+				method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.shift_details',
+				args: {
+					employee: frm.doc.employee,
+					shift_date: frm.doc.shift_date,
+					swap_to: frm.doc.swap_to
+				},
+				callback: function (r) {
+					if (r.message) {
+						var emp_shift = r.message[1][0].shift_type
+						var swap_shift = r.message[0][0].shift_type
+						frm.clear_table("shift_detail");
+						$.each(r.message[0], function(i, d) {
+							frm.add_child('shift_detail', {
+								employee: d.employee,
+								shift_date: d.start_date,
+								allocated_shift:d.shift_type,
+								shift_assign_to:swap_shift
+							});
+						})
+						$.each(r.message[1], function(i, d) {
+							frm.add_child('shift_detail', {
+								employee: d.employee,
+								shift_date: d.start_date,
+								allocated_shift:d.shift_type,
+								shift_assign_to:emp_shift
+							});
+							frm.refresh_field('shift_detail');
+						})
+					}
+				}
+			});
+		}
 	}
 });
