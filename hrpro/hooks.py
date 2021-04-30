@@ -112,12 +112,12 @@ app_license = "MIT"
 # 	"hourly": [
 # 		"hrpro.tasks.hourly"
 # 	],
-# 	"weekly": [
-# 		"hrpro.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"hrpro.tasks.monthly"
-# 	]
+	# "weekly": [
+        
+	# ]
+	# "yearly": [
+
+	# ]
 # }
 
 # Testing
@@ -143,4 +143,4 @@ app_license = "MIT"
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
-fixtures = ['Desk Page','Custom Script','Custom Field']
+fixtures = ['Custom Script','Custom Field']
