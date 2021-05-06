@@ -7,6 +7,7 @@ from datetime import datetime
 from calendar import monthrange
 from frappe import _, msgprint
 from frappe.utils import flt
+from frappe.utils import cstr, add_days, date_diff, getdate, cint
 
 def execute(filters=None):
     if not filters:
@@ -75,10 +76,18 @@ def get_salary_slips(conditions, filters):
     return salary_slips
 
 def get_conditions(filters):
-    conditions = ""
-    if filters.get("from_date"):
-        conditions += "start_date >= %(from_date)s"
-    if filters.get("to_date"):
-        conditions += " and end_date >= %(to_date)s"
+    if not (filters.get("month") and filters.get("year")):
+        msgprint(_("Please select month and year"), raise_exception=1)
 
+    filters["total_days_in_month"] = monthrange(cint(filters.year), cint(filters.month))[1]
+
+    conditions = "month(start_date) = %(month)s and year(start_date) = %(year)s"
     return conditions, filters
+
+@frappe.whitelist()
+def get_years():
+    year_list = frappe.db.sql_list("""select distinct YEAR(start_date) from `tabSalary Slip` ORDER BY YEAR(start_date) DESC""")
+    if not year_list:
+        year_list = [getdate().year]
+
+    return "\n".join(str(year) for year in year_list)

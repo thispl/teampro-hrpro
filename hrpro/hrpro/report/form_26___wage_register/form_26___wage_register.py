@@ -5,6 +5,9 @@ from __future__ import unicode_literals
 import frappe
 from frappe.utils import flt
 from frappe import _
+from frappe.utils import cstr, add_days, date_diff, getdate, cint
+from datetime import datetime
+from calendar import monthrange
 
 def execute(filters=None):
     if not filters: filters = {}
@@ -88,12 +91,16 @@ def get_conditions(filters):
     if filters.get("docstatus"):
         conditions += "docstatus = {0}".format(doc_status[filters.get("docstatus")])
 
-    if filters.get("from_date"): conditions += " and start_date >= %(from_date)s"
-    if filters.get("to_date"): conditions += " and end_date <= %(to_date)s"
+    if not (filters.get("month") and filters.get("year")):
+        msgprint(_("Please select month and year"), raise_exception=1)
+
+    filters["total_days_in_month"] = monthrange(cint(filters.year), cint(filters.month))[1]
+
+    conditions = "month(start_date) = %(month)s and year(start_date) = %(year)s"
     if filters.get("company"): conditions += " and company = %(company)s"
     if filters.get("employee"): conditions += " and employee = %(employee)s"
-    if filters.get("subcontractor_id"): conditions += " and subcontractor_id = %(subcontractor_id)s"
-    if filters.get("job_order_name"): conditions += " and job_order_name = %(job_order_name)s"
+    # if filters.get("subcontractor_id"): conditions += " and subcontractor_id = %(subcontractor_id)s"
+    # if filters.get("job_order_name"): conditions += " and job_order_name = %(job_order_name)s"
 
     return conditions, filters
 
@@ -128,3 +135,11 @@ def get_ss_ded_map(salary_slips):
         ss_ded_map[d.parent][d.salary_component] = flt(d.amount)
 
     return ss_ded_map
+
+@frappe.whitelist()
+def get_years():
+    year_list = frappe.db.sql_list("""select distinct YEAR(start_date) from `tabSalary Slip` ORDER BY YEAR(start_date) DESC""")
+    if not year_list:
+        year_list = [getdate().year]
+
+    return "\n".join(str(year) for year in year_list)

@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["ESI Report"] = {
+frappe.query_reports["PF and ESI Summary Report"] = {
 	"filters": [
         {
 			"fieldname": "month",
@@ -32,16 +32,17 @@ frappe.query_reports["ESI Report"] = {
 			"reqd": 1,
 		},
     ],
-    onload:function(){
-        return  frappe.call({
-            method: "hrpro.hrpro.report.esi_report.esi_report.get_years",
-            callback: function(r) {
-                var year_filter = frappe.query_report.get_filter('year');
-                year_filter.df.options = r.message;
-                year_filter.df.default = r.message.split("\n")[0];
-                year_filter.refresh();
-                year_filter.set_input(year_filter.df.default);
-            }
-        });
-    }
+
+onload : function() {
+    return  frappe.call({
+        method: "hrpro.hrpro.report.pf_and_esi_summary_report.pf_and_esi_summary_report.get_years",
+        callback: function(r) {
+            var year_filter = frappe.query_report.get_filter('year');
+            year_filter.df.options = r.message;
+            year_filter.df.default = r.message.split("\n")[0];
+            year_filter.refresh();
+            year_filter.set_input(year_filter.df.default);
+        }
+    });
+}
 };
