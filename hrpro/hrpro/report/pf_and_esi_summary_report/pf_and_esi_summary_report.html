@@ -1,0 +1,154 @@
+{%
+	var report_columns = report.get_columns_for_print();
+%}
+{% for(var j=0, k=1; j<k; j++) { %}
+{%
+    var row = data[j];
+%}
+{% for(var i=0, l=1; i<l; i++) { %}
+
+<meta name="pdfkit-orientation" content="Landscape" />
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12"><br><br>
+            <h4>
+                <center>COMBINED CHALLAN OF A/C NO. 01, 02, 10, 21 & 22 (With</center>
+            </h4>
+            <h4>
+                <center><u>EMPLOYEES' PROVIDENT FUND ORGANISATION</u></center>
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <p>Establishment Code & Name:{{filters.company}}</p>
+            <p>Address:</p>
+        </div>
+        <div class="col-xs-6">
+            <p style="text-align: right;">
+                <right>Dues for the wage month of  {{filters.month}}/{{filters.year}}</right>
+            </p>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-xs-3">
+            <p>-</p>
+            <p>Total Subscribers :</p>
+            <p>Total Wages :</p>
+        </div>
+        <div class="col-xs-3">
+            <p>EPF</p>
+            <p>-</p>
+            {% var fieldname = "employee_pf"; %}
+            <p>{%= row[fieldname] %}</p>
+        </div>
+        <div class="col-xs-3">
+            <p>EPS</p>
+            <p></p>
+            <p></p>
+        </div>
+        <div class="col-xs-3">
+            <p>EDLI</p>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <table class="table table-bordered" border="2">
+        <tr>
+            <th colspan="1">SL.</th>
+            <th colspan="3">PARTICULARS</th>
+            <th colspan="1">A/C.01 (Rs.)</th>
+            <th colspan="1">A/C.02 (Rs.)</th>
+            <th colspan="1">A/C.10 (Rs.)</th>
+            <th colspan="1">A/C.21 (Rs.)</th>
+            <th colspan="1">A/C.22 (Rs.)</th>
+            <th colspan="3">TOTAL</th>
+        </tr>
+        <tr>
+            <td colspan="1">1.</td>
+            <td colspan="3">Administration Charges</td>
+            <td colspan="1">0</td>
+            {% var fieldname = "service_charge"; %}
+            <td colspan="1">{%= row[fieldname] %}</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="3">{%= row[fieldname] %}</td>
+        </tr>
+        <tr>
+            <td colspan="1">2.</td>
+            <td colspan="3">Employer Share of</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            {% var fieldname = "employer_pf"; %}
+            <td colspan="3">{%= row[fieldname] %}</td>
+        </tr>
+        <tr>
+            <td colspan="1">3.</td>
+            <td colspan="3">Employee Share of</td>
+            {% var fieldname = "employee_pf"; %}
+            <td colspan="1">{%= row[fieldname] %}</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="1">0</td>
+            <td colspan="3">{%= row[fieldname] %}</td>
+        </tr>
+        <tr>
+            <td colspan="9">Grand Total:</td>
+            {% var fieldname = "total"; %}
+            <td colspan="3">{%= row[fieldname] %}</td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-xs-12">
+            <p>(This is a system generated challan on {{"__________"}}, the particulars shown in this challan are populated from the Electronic Challan Cum Return (ECR) uploaded by the
+                establishment for the specified month and year.</p><br>
+            <p>Note :- The following amounts are being remitted directly by Government of India on account of PMRPY / ABRY.</p>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-xs-1">
+            <p>-</p>
+            <p>A)</p>
+            <p>B)</p>
+            <p>C)</p>
+            <p>D)</p>
+            <p>E)</p>
+            <p>F)</p>
+        </div>
+        <div class="col-xs-5">
+            <p>-</p>
+            <p>A/C no 1 (Employer share) ( Rs.) -</p>
+            <p>A/C no 10 (Pension fund) ( Rs.) -</p>
+            <p>A/C no 1 (Employee share) ( Rs.) -</p>
+            <p>Total (A + B + C) ( Rs.) -</p>
+            <p>Total remittance by Employer ( Rs.) -</p>
+            <p>Total amount of uploaded ECR (D + E)</p>
+        </div>
+        <div class="col-xs-3">
+            <p>PMRPY</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            {% var fieldname = "total"; %}
+            <p>{%= row[fieldname] %}</p>
+            <p>{%= row[fieldname] %}</p>
+        </div>
+        <div class="col-xs-3">
+            <p>ABRY</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+        </div>
+    </div>
+    {% } %}
+{% } %}
+</div>

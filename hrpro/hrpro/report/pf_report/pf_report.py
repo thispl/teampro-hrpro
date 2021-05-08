@@ -140,16 +140,16 @@ def get_template():
     w = UnicodeWriter()
     
     values = args['value']
-    values.insert(12,"\n")
+    frappe.errprint(values)
     value_list = list(values.split(","))
     s = "#~#"
     formatted_value = s.join(value_list)
     frappe.errprint(formatted_value)
 
     # write out response as a type csv
-    # frappe.response['result'] = cstr(formatted_value)
-    # frappe.response['type'] = 'txt'
-    # frappe.response['doctype'] = "PF Form"
+    frappe.response['result'] = cstr(formatted_value)
+    frappe.response['type'] = 'txt'
+    frappe.response['doctype'] = "PF Form"
 
 @frappe.whitelist()
 def get_years():

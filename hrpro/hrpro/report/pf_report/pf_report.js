@@ -36,18 +36,23 @@ frappe.query_reports["PF Report"] = {
 onload : function(report) {
 	report.page.add_inner_button(__('Download TXT File'), function() {
         values = []
+		data=[]
         columns = []
         report_data = report.data
-        // console.log(report_data)
-        for(i=0;i< report_data.length;i++){
-            values.push(Object.values(report_data[i]))
-        }
+        console.log(report_data)
+		for(i=0;i< report_data.length;i++){
+			for(j=0;j< 1;j++){
+				console.log(report_data[i])
+				values.push(Object.values(report_data[i]))
+			}
+			data.push([values])
+		};
         
         window.location.href = repl(frappe.request.url +
 			'?cmd=%(cmd)s&column=%(column)s&value=%(value)s', {
 			cmd: "hrpro.hrpro.report.pf_report.pf_report.get_template",
             column: columns,
-            value: values,
+            value: data,
 		});
         
 	});

@@ -24,6 +24,7 @@
   {
    "fieldname": "employee",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Employee",
    "options": "Employee"
   },
@@ -103,7 +104,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-04-30 10:27:31.912817",
+ "modified": "2021-05-08 10:55:40.705446",
  "modified_by": "Administrator",
  "module": "Hrpro",
  "name": "Miss Punch Application",

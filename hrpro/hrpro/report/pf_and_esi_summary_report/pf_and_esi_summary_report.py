@@ -66,7 +66,7 @@ def get_conditions(filters):
     filters["total_days_in_month"] = monthrange(cint(filters.year), cint(filters.month))[1]
 
     conditions = "month(ss.start_date) = %(month)s and year(ss.start_date) = %(year)s"
-
+    if filters.get("company"): conditions += " and company = %(company)s"
     return conditions, filters
 
 @frappe.whitelist()

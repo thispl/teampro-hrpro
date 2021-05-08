@@ -31,6 +31,13 @@ frappe.query_reports["PF and ESI Summary Report"] = {
 			"fieldtype": "Select",
 			"reqd": 1,
 		},
+		{
+			"fieldname": "company",
+			"label": __("Company"),
+			"fieldtype": "Link",
+			"options": "Company",
+			"default": frappe.defaults.get_user_default("Company")
+		},
     ],
 
 onload : function() {
