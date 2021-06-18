@@ -102,7 +102,7 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"hrpro.tasks.all"
 # 	],
@@ -115,10 +115,10 @@ app_license = "MIT"
 	# "weekly": [
         
 	# ]
-	# "yearly": [
-
-	# ]
-# }
+	"yearly": [
+		"hrpro.hrpro.doctype.lapse_el_leave_balance.lapse_el_leave_balance.leave_allocation"
+	]
+}
 
 # Testing
 # -------

@@ -5,6 +5,23 @@ frappe.ui.form.on('Shift Swapping', {
 	// refresh: function(frm) {
 
 	// }
+	before_save:function(frm){
+		if (frappe.user.has_role("Employee")){
+			frappe.call({
+				method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.validate_employee',
+				args: {
+					employee: frm.doc.employee,
+					shift_date: frm.doc.shift_date
+				},
+				callback: function (r) {
+					if (r.message) {
+						frappe.validated = false;
+						frappe.throw(r.message)
+					}
+				}
+			});
+		}
+	},
 	shift_date:function(frm){
 		if(frm.doc.shift_date){
 			frappe.call({

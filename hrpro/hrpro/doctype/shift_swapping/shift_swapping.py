@@ -45,3 +45,9 @@ def shift_details(employee,shift_date,swap_to):
 	emp = frappe.db.sql("""select employee,shift_type,start_date,end_date from `tabShift Assignment` where employee = '%s' and '%s' between start_date and end_date"""%(employee, shift_date),as_dict = 1)
 	swap_emp = frappe.db.sql("""select employee,shift_type,start_date,end_date from `tabShift Assignment` where employee = '%s' and '%s' between start_date and end_date"""%(swap_to, shift_date),as_dict = 1)
 	return emp,swap_emp
+
+@frappe.whitelist()
+def validate_employee(employee,shift_date):
+	shift_swap = frappe.db.sql("""SELECT count(name) as count FROM `tabShift Swapping` WHERE employee='%s' and MONTH(shift_date)=MONTH('%s') """%(employee,shift_date),as_dict = True)
+	if shift_swap[0].count > 2:
+		return("You cannot be Apply this month")

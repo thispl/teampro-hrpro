@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "creation": "2021-06-14 18:19:10.980425",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "relationship",
+  "date_of_birth",
+  "occupation",
+  "dependent"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "search_index": 1
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relationship",
+   "options": "\nFather\nMother\nWife\nSon\nDaughter\nBrother\nSister",
+   "search_index": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Birth",
+   "search_index": 1
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Occupation",
+   "search_index": 1
+  },
+  {
+   "fieldname": "dependent",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Dependent",
+   "options": "\nYes\nNo",
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-06-14 18:25:02.885387",
+ "modified_by": "Administrator",
+ "module": "Hrpro",
+ "name": "Family Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

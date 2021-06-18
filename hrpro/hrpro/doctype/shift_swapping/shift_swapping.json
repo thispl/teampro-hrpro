@@ -107,7 +107,8 @@
    "fieldname": "shift_detail",
    "fieldtype": "Table",
    "label": "Shift Detail",
-   "options": "Shift Swap Detail"
+   "options": "Shift Swap Detail",
+   "read_only": 1
   },
   {
    "fieldname": "status",
@@ -125,7 +126,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-03-27 20:18:40.059480",
+ "modified": "2021-06-14 17:08:45.173472",
  "modified_by": "Administrator",
  "module": "Hrpro",
  "name": "Shift Swapping",

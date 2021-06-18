@@ -1602,10 +1602,6 @@ def get_mr_in1(emp,day):
         if from_time:
             if att_in_time >= (from_time + timedelta(minutes=-10)):
                 return to_time - from_time
-
-
-
-
         
 @frappe.whitelist()
 def send_announcement(name):
@@ -2052,3 +2048,26 @@ On behalf of every one, I would like to wish %s the best of luck. </p>""" % (emp
 def get_six_month(date):
     ex_date = add_months(date,6)
     return ex_date
+
+@frappe.whitelist()
+def create_holidays():
+    start_date = date(date.today().year, 1, 1)
+    end_date = date(date.today().year, 12, 31)
+    employee = frappe.get_all("Employee",{"status":"Active"})
+    for emp in employee:
+        print(emp.name)
+        if not frappe.db.exists("Holiday List",{"name":emp.name}):
+            holiday = frappe.new_doc("Holiday List")
+            holiday.holiday_list_name = emp.name
+            holiday.from_date = start_date
+            holiday.to_date = end_date
+            holiday.save(ignore_permissions=True)
+            frappe.db.commit()
+            frappe.db.set_value('Employee',emp.name,"holiday_list",emp.name)
+
+@frappe.whitelist()
+def check_date_value():
+    # shift_date = datetime.strptime("26-04-2021", "%Y-%m-%d")
+    # today_date = datetime.datetime.strptime("21/12/2008", "%d/%m/%Y").strftime("%Y-%m-%d")
+    shift_date = (datetime.strptime(str("26-04-2021"), '%d-%m-%Y')).date()
+    print(shift_date)
