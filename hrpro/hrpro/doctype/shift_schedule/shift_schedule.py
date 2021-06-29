@@ -160,14 +160,15 @@ def create_shift_assignment(file,from_date,to_date,name):
     for pp in pps:
         if pp[6] != 'Shift':
             if pp[6]:
-                shift_date = datetime.strptime(pp[4],'%d-%m-%Y')
+                shift_date = datetime.strptime(pp[4],'%d/%m/%Y')
+                shift_date_formatted = shift_date.strftime('%Y-%m-%d')
                 if pp[6] != 'WO':
-                    if not frappe.db.exists("Shift Assignment",{'employee':pp[0],'start_date':shift_date,'end_date':shift_date,'docstatus':['in',[0,1]]}):
+                    if not frappe.db.exists("Shift Assignment",{'employee':pp[0],'start_date':shift_date_formatted,'end_date':shift_date_formatted,'docstatus':['in',[0,1]]}):
                         doc = frappe.new_doc("Shift Assignment")
                         doc.employee = pp[0]
                         doc.shift_type = pp[6]
-                        doc.start_date = shift_date
-                        doc.end_date = shift_date
+                        doc.start_date = shift_date_formatted
+                        doc.end_date = shift_date_formatted
                         doc.shift_schedule = name
                         doc.save(ignore_permissions=True)
                         frappe.db.commit()
@@ -175,7 +176,7 @@ def create_shift_assignment(file,from_date,to_date,name):
                     if frappe.db.exists("Holiday List",{'name':pp[0]}):
                         holiday = frappe.get_doc("Holiday List", pp[0])
                         holiday.append("holidays",{
-                            "holiday_date":pp[4],
+                            "holiday_date":shift_date_formatted,
                             "weekly_off":1,
                             "description":"Week Off"
                         })
@@ -247,7 +248,7 @@ def get_data(args):
                 employee.name, employee.employee_name, employee.department,employee.category,date,employee.shift_group,employee.default_shift
             ]
             if date in holidays[employee_holiday_list]:
-                row[6] =  "Holiday"
+                row[6] =  "WO"
             data.append(row)
     return data
 

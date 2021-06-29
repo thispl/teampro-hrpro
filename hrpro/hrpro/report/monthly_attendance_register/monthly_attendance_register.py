@@ -147,7 +147,7 @@ def add_data(employee_map, att_map, filters, holiday_map, conditions, default_ho
 		row = []
 		if filters.group_by:
 			row += [" "]
-		row += [emp, emp_det.employee_name]
+		row += [emp, emp_det.employee_name,emp_det.father_name,emp_det.department,emp_det.designation,emp_det.category,emp_det.date_of_birth,emp_det.date_of_joining,emp_det.branch,emp_det.grade]
 
 		total_p = total_a = total_l = total_h = total_um= total_1 = total_2 = total_3 = total_g = 0.0
 		emp_status_map = []
@@ -241,7 +241,7 @@ def get_columns(filters):
 		columns = [_(filters.group_by)+ ":Link/Branch:120"]
 
 	columns += [
-		_("Employee") + ":Link/Employee:120", _("Employee Name") + ":Data/:120"
+		_("Employee") + ":Link/Employee:120", _("Employee Name") + ":Data/:120", _("Father's Name") + ":Data/:120", _("Department") + ":Data/:120", _("Designation") + ":Data/:120", _("Category") + ":Data/:120", _("DOB") + ":Date/:120", _("DOJ") + ":date/:120", _("Location") + ":Data/:120", _("Grade") + ":Data/:120"
 	]
 	days = []
 	for day in range(filters["total_days_in_month"]):
@@ -293,7 +293,7 @@ def get_conditions(filters):
 
 def get_employee_details(group_by, company):
 	emp_map = {}
-	query = """select name, employee_name, designation, department, branch, company,
+	query = """select name, employee_name, designation, date_of_birth, date_of_joining, category, grade, father_name, department, branch, company,
 		holiday_list from `tabEmployee` where company = %s """ % frappe.db.escape(company)
 
 	if group_by:

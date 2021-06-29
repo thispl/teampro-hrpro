@@ -1,7 +1,7 @@
 {
  "actions": [],
- "autoname": "SS-.YY.-.MM.-.#####",
- "creation": "2021-03-26 16:01:26.569416",
+ "autoname": "SGC:.#####",
+ "creation": "2021-06-28 21:02:00.653661",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -10,15 +10,14 @@
   "employee_name",
   "department",
   "designation",
-  "status",
-  "column_break_5",
+  "category",
+  "present_group",
+  "column_break_7",
   "posting_date",
   "company",
-  "shift_date",
-  "shift_type",
-  "swap_to",
-  "section_break_10",
-  "shift_detail",
+  "from_date",
+  "to_date",
+  "group_change_to",
   "amended_from"
  ],
  "fields": [
@@ -54,7 +53,23 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_5",
+   "fetch_from": "employee.category",
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Category",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.shift_group",
+   "fieldname": "present_group",
+   "fieldtype": "Link",
+   "label": "Present Group",
+   "options": "Shift Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
    "fieldtype": "Column Break"
   },
   {
@@ -63,22 +78,35 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Posting Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
-   "fieldname": "shift_type",
-   "fieldtype": "Link",
-   "label": "Shift type",
-   "options": "Shift Type",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.employee && doc.shift_date",
-   "fieldname": "swap_to",
+   "fieldname": "company",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Swap to",
-   "options": "Employee",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "group_change_to",
+   "fieldtype": "Link",
+   "label": "Group Change to",
+   "options": "Shift Group",
    "reqd": 1
   },
   {
@@ -86,49 +114,18 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Shift Swapping",
+   "options": "Shift Group Change",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.employee",
-   "fieldname": "shift_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Shift Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "shift_detail",
-   "fieldtype": "Table",
-   "label": "Shift Detail",
-   "options": "Shift Swap Detail",
-   "read_only": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Draft\nApproved\nRejected"
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-06-28 19:02:54.186914",
+ "modified": "2021-06-29 09:29:04.976471",
  "modified_by": "Administrator",
  "module": "Hrpro",
- "name": "Shift Swapping",
+ "name": "Shift Group Change",
  "owner": "Administrator",
  "permissions": [
   {
@@ -140,7 +137,37 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
    "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

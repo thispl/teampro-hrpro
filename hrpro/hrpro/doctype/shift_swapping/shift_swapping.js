@@ -23,6 +23,7 @@ frappe.ui.form.on('Shift Swapping', {
 		}
 	},
 	shift_date:function(frm){
+		frm.set_value('swap_to','')
 		if(frm.doc.shift_date){
 			frappe.call({
 				method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.allocated_shift',
@@ -31,15 +32,19 @@ frappe.ui.form.on('Shift Swapping', {
 					shift_date: frm.doc.shift_date
 				},
 				callback: function (r) {
-					if (r.message) {
+					if (r.message[0].shift_type) {
 						frm.set_value('shift_type', r.message[0].shift_type);
+					}
+					else{
+						frappe.validated = false;
+						frappe.msgprint("There is No Shift Assignment in the Date")
 					}
 				}
 			});
 		}
 	},
 	swap_to:function(frm){
-		if (frm.doc.swap_to){
+		if (frm.doc.swap_to && frm.doc.shift_date){
 			frappe.call({
 				method: 'hrpro.hrpro.doctype.shift_swapping.shift_swapping.shift_details',
 				args: {

@@ -2071,3 +2071,48 @@ def check_date_value():
     # today_date = datetime.datetime.strptime("21/12/2008", "%d/%m/%Y").strftime("%Y-%m-%d")
     shift_date = (datetime.strptime(str("26-04-2021"), '%d-%m-%Y')).date()
     print(shift_date)
+
+@frappe.whitelist()   
+def create_user(employee_number,employee_name,prefered_email):
+    # frappe.errprint(employee_number)
+    user = frappe.new_doc("User")
+    user.email = prefered_email
+    user.first_name = employee_name
+    user.username = employee_number
+    user.send_welcome_mail = 0
+    user.new_password = "mpl@1234"
+    user.save(ignore_permissions = True)
+    frappe.db.commit()
+    return user.email
+
+@frappe.whitelist()
+def create_userlist():
+    employee = frappe.db.get_all("Employee",{"status":"Active"},["name","user_id","employee_name"])
+    for emp in employee:
+        if emp.user_id == None:
+            print(emp)
+            user = frappe.new_doc("User")
+            user.email = str(emp.name)+"@gmail.com"
+            user.first_name = emp.employee_name
+            user.username = emp.name
+            user.send_welcome_mail = 0
+            user.new_password = "Mpl@1234"
+            user.save(ignore_permissions = True)
+            frappe.db.commit()
+            # frappe.db.set_value('Employee',emp.name,"user_id",str(emp.name)+"@gmail.com")
+
+@frappe.whitelist()
+def upload_holiday():
+    employee = frappe.db.get_all("Employee",{"status":"Active"},["name"])
+    for emp in employee:
+        print(emp)
+        holi = frappe.db.exists("Holiday List",{"name":emp.name})
+        print(holi)
+        if holi:
+            holiday = frappe.get_doc("Holiday List",{"name":emp.name})
+            frappe.errprint(holiday)
+            row = holiday.append('holidays', {})
+            row.holiday_date = str("2021-11-04")
+            row.description = str("Diwali")
+            row.save(ignore_permissions=True)
+            frappe.db.commit()

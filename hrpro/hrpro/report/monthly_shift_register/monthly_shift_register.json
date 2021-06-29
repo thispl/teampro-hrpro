@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2021-06-18 10:17:44.469533",
+ "modified": "2021-06-18 12:05:07.647396",
  "modified_by": "Administrator",
  "module": "Hrpro",
  "name": "Monthly Shift Register",
@@ -27,6 +27,12 @@
   },
   {
    "role": "HR User"
+  },
+  {
+   "role": "All"
+  },
+  {
+   "role": "HOD"
   }
  ]
 }
